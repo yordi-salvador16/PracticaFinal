@@ -14,26 +14,6 @@ class Animal extends Model
         'cuidador_id',
     ];
 
-    public function especies()
-    {
-        return $this->hasOne(\App\Models\Especies);
-    }
-
-    public function recintoss()
-    {
-        return $this->hasMany('App\Models\Recintos');
-    }
-
-    public function cuidador()
-    {
-        return $this->hasOne(\App\Models\Cuidador);
-    }
-
-    public function especies()
-    {
-        return $this->belongsTo('App\Models\Especies');
-    }
-
     public function recintoss()
     {
         return $this->belongsToMany('App\Models\Recintos');
