@@ -1,0 +1,50 @@
+@startuml sistema_zoologico
+ 
+class models.Animal{
+    nombre:string
+    especies:string
+    habitat:string
+    cuidador_id:integer
+}
+class models.Especies{
+    nombre:string
+    associated_habitat:string
+}
+class models.Recintos{
+    nombre:string
+    designed_species:string
+}
+class models.Cuidador{
+    nombre:string
+    especialidad:string
+}
+class models.Actividad{
+    nombre:string
+    cronograma:string
+    associated_animals:integer
+}
+class controllers.Animal{
+    resource()
+}
+class controllers.Especies{
+    resource()
+}
+class controllers.Recintos{
+    resource()
+}
+class controllers.Cuidador{
+    resource()
+}
+class controllers.Actividad{
+    resource()
+}
+ 
+models.Animal"1"--"1"models.Especies
+models.Animal"1"--"*"models.Recintos
+models.Animal"1"--"1"models.Cuidador
+models.Especies"1"--"*"models.Animal
+models.Especies"1"--"1"models.Recintos
+models.Recintos"*"--"*"models.Animal
+models.Cuidador"1"--"*"models.Animal
+models.Actividad"*"--"*"models.Animal
+@enduml
